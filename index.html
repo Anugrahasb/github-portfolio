@@ -4,125 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anugraha S.B | Android & KMP Engineer</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Library for Scroll Animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Sticky Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#home" class="logo">A<span>SB</span></a>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Anugraha<span> S.B</span></div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#projects">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="nav-btns">
-                <a href="#" class="btn btn-outline">Resume</a>
-                <div class="menu-btn"><i class="fas fa-bars"></i></div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content" data-aos="fade-right">
-                <p class="hero-subtitle">Engineering the Mobile Future</p>
-                <h1>Hi, I'm <span class="highlight">Anugraha S.B</span></h1>
-                <h2 class="typing-text">Senior <span id="typed"></span></h2>
-                <p class="hero-description">
-                    Result-driven Android & Kotlin Multiplatform (KMP) Engineer with 4+ years of experience delivering high-performance applications used by 1M+ users.
-                </p>
-                <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+        <div class="hero-container">
+            <div class="hero-text" data-aos="fade-right">
+                <p class="greeting">HELLO!</p>
+                <h1>I'm <span>Anugraha S.B</span></h1>
+                <h3>Android & Kotlin Multiplatform Engineer</h3>
+                <p class="summary">Result-driven Engineer with 4+ years of experience delivering scalable, high-performance applications used by over 1M+ users. Specializing in Jetpack Compose, KMP, and Clean Architecture.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary">Let's talk</a>
+                    <a href="#" class="btn btn-secondary">Download CV</a>
                 </div>
-                <div class="social-links">
+                <div class="social-icons">
                     <a href="https://github.com/Anugrahasb" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://linkedin.com/in/anugrahasb" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://medium.com/@anugrahasb" target="_blank"><i class="fab fa-medium"></i></a>
                 </div>
             </div>
-            <div class="hero-image-container" data-aos="zoom-in">
-                <div class="image-wrapper">
-                    <img src="https://via.placeholder.com/400" alt="Anugraha S.B" class="profile-img">
+            <div class="hero-img" data-aos="zoom-in">
+                <div class="img-box">
+                    <img src="https://via.placeholder.com/400x400" alt="Anugraha S.B">
                 </div>
-                <div class="glow-ring"></div>
+                <div class="glow"></div>
             </div>
         </div>
     </section>
 
-    <!-- About Me Section -->
     <section id="about" class="about">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>About <span>Me</span></h2>
-                <div class="underline"></div>
+        <div class="about-container" data-aos="fade-up">
+            <h2 class="section-title">About <span>Me</span></h2>
+            <div class="about-img">
+                <div class="img-box-small">
+                    <img src="https://via.placeholder.com/300x300" alt="Anugraha S.B">
+                </div>
+                <div class="glow-small"></div>
             </div>
-            <div class="about-grid">
-                <div class="about-card" data-aos="fade-up">
-                    <i class="fas fa-code"></i>
-                    <h3>4+ Years Experience</h3>
-                    <p>Expert in Android ecosystem and Kotlin Multiplatform development.</p>
-                </div>
-                <div class="about-card" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-users"></i>
-                    <h3>Squad Leadership</h3>
-                    <p>Experienced in leading Agile squads and driving engineering initiatives.</p>
-                </div>
-                <div class="about-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>EdTech Expert</h3>
-                    <p>Domain expertise in building scalable education technology products.</p>
-                </div>
-            </div>
-            <div class="about-summary" data-aos="fade-up">
-                <p>I specialize in building scalable mobile architectures using Jetpack Compose, KMP, and Clean Architecture. My focus is on mobile performance optimization and real-time communication systems.</p>
+            <div class="about-content">
+                <h3>Android & Kotlin Multiplatform Engineer</h3>
+                <p>Based in Bangalore, India, I have over 4+ years of experience in Android development and a passion for Kotlin Multiplatform. I've led Agile squads and built impactful EdTech products, focusing on scalable mobile architectures and high-performance solutions.</p>
+                <a href="#contact" class="btn btn-primary">Hire Me</a>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section (Timeline) -->
     <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Work <span>Experience</span></h2>
-                <div class="underline"></div>
-            </div>
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">Work <span>Experience</span></h2>
             <div class="timeline">
                 <div class="timeline-item" data-aos="fade-left">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">October 2024 - Present</div>
+                    <div class="timeline-date">Oct 2024 - Present</div>
                     <div class="timeline-content">
                         <h3>Chimple Learning (Client: Ustad Mobile)</h3>
                         <p class="role">Android & KMP Engineer</p>
                         <ul>
-                            <li>Implementing Kotlin Multiplatform architecture across Android, Desktop, and Web.</li>
-                            <li>Architecting offline-first education platforms.</li>
-                            <li>Building interactive reporting dashboards and Matomo Analytics integration.</li>
+                            <li>Implemented Kotlin Multiplatform architecture across Android, Desktop, and Web.</li>
+                            <li>Architecting offline-first education platforms and reporting systems.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="timeline-item" data-aos="fade-right">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">February 2022 - September 2024</div>
+                    <div class="timeline-date">Feb 2022 - Sep 2024</div>
                     <div class="timeline-content">
-                        <h3>Perfectz Digital (Cakap)</h3>
+                        <h3>Perfectz Digital – Cakap</h3>
                         <p class="role">Squad Lead & Senior Android Developer</p>
                         <ul>
-                            <li>Integrated Agora RTC for real-time online classrooms.</li>
+                            <li>Redesigned RTC classroom using Agora RTC; reduced UI defects by 40%.</li>
                             <li>Led major migrations from Java to Kotlin and XML to Jetpack Compose.</li>
-                            <li>Developed a robust Design System library and achieved 99.9% app stability.</li>
                         </ul>
                     </div>
                 </div>
@@ -130,217 +107,78 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Technical <span>Skills</span></h2>
-                <div class="underline"></div>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-group" data-aos="fade-up">
-                    <h3>Android & Cross-Platform</h3>
-                    <div class="chips">
-                        <span class="chip">Kotlin</span>
-                        <span class="chip">Java</span>
-                        <span class="chip">Android SDK</span>
-                        <span class="chip">KMP</span>
-                        <span class="chip">Compose Multiplatform</span>
-                    </div>
-                </div>
-                <div class="skill-group" data-aos="fade-up" data-aos-delay="100">
-                    <h3>UI & Architecture</h3>
-                    <div class="chips">
-                        <span class="chip">Jetpack Compose</span>
-                        <span class="chip">Material Design 3</span>
-                        <span class="chip">MVVM</span>
-                        <span class="chip">MVI</span>
-                        <span class="chip">Clean Architecture</span>
-                    </div>
-                </div>
-                <div class="skill-group" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Modern Stack</h3>
-                    <div class="chips">
-                        <span class="chip">Coroutines</span>
-                        <span class="chip">Flow</span>
-                        <span class="chip">Hilt</span>
-                        <span class="chip">Koin</span>
-                        <span class="chip">Retrofit / KTOR</span>
-                    </div>
-                </div>
-                <div class="skill-group" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Networking & Tools</h3>
-                    <div class="chips">
-                        <span class="chip">Agora RTC</span>
-                        <span class="chip">WebSockets</span>
-                        <span class="chip">Room</span>
-                        <span class="chip">MockK / JUnit</span>
-                        <span class="chip">GitHub Actions</span>
-                    </div>
-                </div>
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">My <span>Skills</span></h2>
+            <div class="skills-wrapper">
+                <div class="skill-chip">Kotlin</div>
+                <div class="skill-chip">Java</div>
+                <div class="skill-chip">Jetpack Compose</div>
+                <div class="skill-chip">KMP</div>
+                <div class="skill-chip">MVVM</div>
+                <div class="skill-chip">MVI</div>
+                <div class="skill-chip">Clean Architecture</div>
+                <div class="skill-chip">Coroutines</div>
+                <div class="skill-chip">Flow</div>
+                <div class="skill-chip">Hilt</div>
+                <div class="skill-chip">Retrofit</div>
+                <div class="skill-chip">KTOR</div>
+                <div class="skill-chip">Room</div>
+                <div class="skill-chip">MockK</div>
+                <div class="skill-chip">JUnit</div>
+                <div class="skill-chip">Firebase</div>
+                <div class="skill-chip">GitHub Actions</div>
             </div>
         </div>
     </section>
 
-    <!-- Achievements Section -->
-    <section id="achievements" class="achievements">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Key <span>Achievements</span></h2>
-                <div class="underline"></div>
-            </div>
-            <div class="achievements-grid">
-                <div class="achievement-card" data-aos="zoom-in">
-                    <h3>99.9%</h3>
-                    <p>Application Stability</p>
-                </div>
-                <div class="achievement-card" data-aos="zoom-in" data-aos-delay="100">
-                    <h3>50%</h3>
-                    <p>User Engagement Increase</p>
-                </div>
-                <div class="achievement-card" data-aos="zoom-in" data-aos-delay="200">
-                    <h3>40%</h3>
-                    <p>Reduction in UI Defects</p>
-                </div>
-                <div class="achievement-card" data-aos="zoom-in" data-aos-delay="300">
-                    <h3>Winner</h3>
-                    <p>AI Hackathon Runner-up</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Featured <span>Projects</span></h2>
-                <div class="underline"></div>
-            </div>
+    <section id="projects" class="portfolio">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">Featured <span>Projects</span></h2>
             <div class="projects-grid">
-                <div class="project-card" data-aos="fade-up">
-                    <div class="project-img">
+                <div class="project-card" data-aos="zoom-in">
+                    <div class="project-img-box">
                         <img src="https://via.placeholder.com/600x400" alt="Ustad App">
                     </div>
                     <div class="project-info">
                         <h3>Ustad App</h3>
-                        <p>Offline-first education platform built with Kotlin Multiplatform.</p>
-                        <div class="project-tags">
-                            <span>KMP</span><span>Android</span><span>Compose</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <div class="tags"><span>KMP</span><span>Android</span></div>
+                        <p>Offline-first learning platform for Android, Desktop, and Web.</p>
+                        <a href="https://github.com/Anugrahasb" target="_blank" class="github-btn"><i class="fab fa-github"></i> View</a>
                     </div>
                 </div>
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-img">
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-img-box">
                         <img src="https://via.placeholder.com/600x400" alt="Cakap">
                     </div>
                     <div class="project-info">
                         <h3>Cakap</h3>
-                        <p>Real-time online classroom platform used by over 1M users.</p>
-                        <div class="project-tags">
-                            <span>Android</span><span>Agora RTC</span><span>Jetpack Compose</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-sm btn-outline"><i class="fas fa-external-link-alt"></i> App Store</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/600x400" alt="Design System">
-                    </div>
-                    <div class="project-info">
-                        <h3>Cakap Design System</h3>
-                        <p>A reusable UI component library standardized for high-speed development.</p>
-                        <div class="project-tags">
-                            <span>Design System</span><span>Jetpack Compose</span><span>Clean UI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> Case Study</a>
-                        </div>
+                        <div class="tags"><span>Agora RTC</span><span>Compose</span></div>
+                        <p>Real-time education platform used by 1M+ users.</p>
+                        <a href="#" class="github-btn"><i class="fas fa-external-link-alt"></i> Website</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Publications Section -->
-    <section id="publications" class="publications">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Latest <span>Publications</span></h2>
-                <div class="underline"></div>
-            </div>
-            <div class="publications-grid">
-                <a href="#" class="pub-card" data-aos="fade-up">
-                    <div class="pub-icon"><i class="fab fa-medium"></i></div>
-                    <h3>Implementing SSE in Android</h3>
-                    <p>Using okhttp-eventsource for real-time updates.</p>
-                </a>
-                <a href="#" class="pub-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="pub-icon"><i class="fab fa-medium"></i></div>
-                    <h3>Jetpack Compose Animations</h3>
-                    <p>Understanding and implementing complex animations.</p>
-                </a>
-                <a href="#" class="pub-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="pub-icon"><i class="fab fa-medium"></i></div>
-                    <h3>Network Speed Test</h3>
-                    <p>Using Socket.IO for accurate speed measurement.</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Education</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="education-grid">
-                <div class="edu-card" data-aos="fade-right">
-                    <h3>Master of Computer Applications (MCA)</h3>
-                    <p>Calicut University | Graduated Jan 2022</p>
-                </div>
-                <div class="edu-card" data-aos="fade-left">
-                    <h3>B.Sc Computer Science</h3>
-                    <p>Calicut University | Graduated March 2018</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Get In <span>Touch</span></h2>
-                <div class="underline"></div>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info" data-aos="fade-right">
-                    <div class="info-item">
-                        <i class="fas fa-location-dot"></i>
-                        <p>Bangalore, India</p>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>anugrahasb@example.com</p>
-                    </div>
-                    <div class="social-links large">
-                        <a href="#"><i class="fab fa-github"></i></a>
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">Contact <span>Me</span></h2>
+            <div class="contact-box">
+                <div class="contact-details">
+                    <p><i class="fas fa-envelope"></i> anugrahasb@example.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+                    <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-medium"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
-                <form class="contact-form" data-aos="fade-left">
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                <form class="contact-form">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Message" rows="5" required></textarea>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
@@ -348,14 +186,22 @@
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Anugraha S.B. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 Anugraha S.B. All rights reserved.</p>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="script.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Simple smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
