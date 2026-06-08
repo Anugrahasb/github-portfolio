@@ -3,17 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Professional Portfolio</title>
+    <title>Anugraha S.B | Android & KMP Engineer</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Hi, I'm a Software Engineer</h1>
-        <p>Specializing in Modern Android Development & Cloud Solutions</p>
+        <nav>
+            <div class="logo"><span>Anugraha</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#" class="cta-button download-cv">Download CV</a>
+        </nav>
     </header>
-    <section>
-        <h2>About Me</h2>
-        <p>Welcome to my portfolio website hosted directly on GitHub!</p>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="greeting">HELLO!</p>
+            <h1>I'm <span>Anugraha S.B</span></h1>
+            <p class="title">Android & Kotlin Multiplatform (KMP) Engineer</p>
+            <p class="summary">Result-driven Engineer with 4+ years of experience delivering scalable, high-performance applications used by over 1M+ users. Specializing in Jetpack Compose, KMP, and Clean Architecture.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="cta-button">Let's talk</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://github.com/Anugrahasb" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/anugrahasb" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://medium.com/@anugrahasb" target="_blank"><i class="fab fa-medium"></i></a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-glow">
+                <!-- Replace with your photo -->
+                <img src="https://via.placeholder.com/400x400" alt="Anugraha S.B">
+            </div>
+        </div>
     </section>
+
+    <section id="about" class="about">
+        <h2>About <span>Me</span></h2>
+        <div class="about-container">
+            <div class="about-image">
+                <div class="image-glow-small">
+                    <img src="https://via.placeholder.com/300x300" alt="Anugraha S.B">
+                </div>
+            </div>
+            <div class="about-text">
+                <h3>Android & Kotlin Multiplatform Engineer</h3>
+                <p>Based in Bangalore, India, I have over 4+ years of experience in Android development and a passion for Kotlin Multiplatform. I've led Agile squads and built impactful EdTech products, focusing on scalable mobile architectures and high-performance solutions.</p>
+                <a href="#contact" class="cta-button">Hire Me</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>My <span>Skills</span></h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Languages & Core</h3>
+                <div class="skill-item"><span>Kotlin / Java</span><div class="progress-bar"><div class="progress" style="width: 95%;"></div></div></div>
+                <div class="skill-item"><span>Kotlin Multiplatform</span><div class="progress-bar"><div class="progress" style="width: 85%;"></div></div></div>
+                <div class="skill-item"><span>Coroutines / Flow</span><div class="progress-bar"><div class="progress" style="width: 90%;"></div></div></div>
+            </div>
+            <div class="skill-category">
+                <h3>UI & Frameworks</h3>
+                <div class="skill-item"><span>Jetpack Compose</span><div class="progress-bar"><div class="progress" style="width: 95%;"></div></div></div>
+                <div class="skill-item"><span>Material Design 3</span><div class="progress-bar"><div class="progress" style="width: 90%;"></div></div></div>
+                <div class="skill-item"><span>Agora RTC / WebSockets</span><div class="progress-bar"><div class="progress" style="width: 85%;"></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Key <span>Expertise</span></h2>
+        <div class="services-container">
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Android Development</h3>
+                <p>Expertise in modern Android with Compose, MVVM/MVI, and Clean Architecture.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-layer-group"></i>
+                <h3>KMP / KMM</h3>
+                <p>Building cross-platform logic for Android, iOS, Desktop, and Web using Kotlin.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-video"></i>
+                <h3>Real-time Systems</h3>
+                <p>Implementing Agora RTC, WebSockets, and Socket.IO for interactive classrooms.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <h2>Work <span>Experience</span></h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Oct 2024 - Present</div>
+                <div class="timeline-content">
+                    <h3>Chimple Learning (Client: Ustad Mobile)</h3>
+                    <p class="role">Android & KMP Engineer</p>
+                    <ul>
+                        <li>Implemented KMP architecture across Android, Desktop, and Web.</li>
+                        <li>Built offline-first applications with reporting systems.</li>
+                        <li>Achieved 85% unit test coverage and integrated Matomo Analytics.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Feb 2022 - Sep 2024</div>
+                <div class="timeline-content">
+                    <h3>Perfectz Digital – Cakap</h3>
+                    <p class="role">Squad Lead & Senior Android Developer</p>
+                    <ul>
+                        <li>Redesigned RTC classroom using Agora RTC; reduced UI defects by 40%.</li>
+                        <li>Led migration from Java to Kotlin and XML to Jetpack Compose.</li>
+                        <li>Built reusable Design System and added Picture-in-Picture support.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="portfolio">
+        <h2>Featured <span>Projects</span></h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Ustad App</h3>
+                <p>Offline-first education platform built with Kotlin Multiplatform.</p>
+                <div class="tags"><span>KMP</span><span>Offline-First</span><span>Compose</span></div>
+            </div>
+            <div class="project-card">
+                <h3>Cakap</h3>
+                <p>Real-time education platform with Agora RTC and Qiscus Chat.</p>
+                <div class="tags"><span>Android</span><span>Agora RTC</span><span>WebSockets</span></div>
+            </div>
+            <div class="project-card">
+                <h3>Cakap Design System</h3>
+                <p>Standardized UI library improving development speed and consistency.</p>
+                <div class="tags"><span>Jetpack Compose</span><span>Design System</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="publications">
+        <h2>Latest <span>Articles</span></h2>
+        <div class="articles-grid">
+            <a href="#" class="article-card">
+                <i class="fab fa-medium"></i>
+                <h3>Implementing Server-Sent Events (SSE) in Android</h3>
+            </a>
+            <a href="#" class="article-card">
+                <i class="fab fa-medium"></i>
+                <h3>Understanding Jetpack Compose Animations</h3>
+            </a>
+            <a href="#" class="article-card">
+                <i class="fab fa-medium"></i>
+                <h3>Network Speed Test Using Socket.IO</h3>
+            </a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Get In <span>Touch</span></h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> anugrahasb@email.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Anugraha S.B. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
