@@ -1,206 +1,1654 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anugraha S.B | Android & KMP Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Anugraha S.B | Mobile Solution Architect</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0B0F19',
+                        cyanAccent: '#38BDF8',
+                        purpleAccent: '#A855F7',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #E2E8F0;
+            overflow-x: hidden;
+        }
+
+        /* Subtle Glowing Grid Overlay */
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(circle at center, black, transparent 90%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Animated Neon Rings */
+        .ring-container {
+            perspective: 1000px;
+            position: relative;
+            width: 320px;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .ring-container {
+                width: 480px;
+                height: 480px;
+            }
+        }
+
+        .neon-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            transition: all 0.5s ease;
+        }
+
+        .ring-1 {
+            width: 80%;
+            height: 80%;
+            border-color: #38BDF8;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(56, 189, 248, 0.3);
+            animation: rotate 15s linear infinite;
+        }
+
+        .ring-2 {
+            width: 100%;
+            height: 100%;
+            border-color: #A855F7;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3), inset 0 0 20px rgba(168, 85, 247, 0.3);
+            animation: rotate-reverse 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes rotate-reverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+
+        /* Orbit for Badges */
+        .orbit {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotate 25s linear infinite;
+        }
+
+        .orbit-badge {
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+            font-size: 1.1rem;
+            color: #38BDF8;
+        }
+
+        @media (min-width: 768px) {
+            .orbit-badge {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+        }
+
+        .badge-1 { top: 0; left: 50%; transform: translate(-50%, -50%); }
+        .badge-2 { bottom: 0; left: 50%; transform: translate(-50%, 50%); }
+        .badge-3 { left: 0; top: 50%; transform: translate(-50%, -50%); }
+        .badge-4 { right: 0; top: 50%; transform: translate(50%, -50%); }
+
+        .orbit-badge i, .orbit-badge span {
+            animation: rotate-reverse 25s linear infinite;
+        }
+
+        /* Typing Cursor */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background-color: #38BDF8;
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .glass-nav {
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glow-text:hover {
+            text-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
+        }
+
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.5);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased">
+    <div class="grid-overlay"></div>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">Anugraha<span> S.B</span></div>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-6 md:px-12 py-5 flex justify-between items-center glass-nav">
+        <div class="text-2xl font-black tracking-tighter text-white">
+            ANUGRAHA<span class="text-cyanAccent">.SB</span>
+        </div>
 
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-text" data-aos="fade-right">
-                <p class="greeting">HELLO!</p>
-                <h1>I'm <span>Anugraha S.B</span></h1>
-                <h3>Android & Kotlin Multiplatform Engineer</h3>
-                <p class="summary">Result-driven Engineer with 4+ years of experience delivering scalable, high-performance applications used by over 1M+ users. Specializing in Jetpack Compose, KMP, and Clean Architecture.</p>
-                <div class="hero-btns">
-                    <a href="#contact" class="btn btn-primary">Let's talk</a>
-                    <a href="#" class="btn btn-secondary">Download CV</a>
-                </div>
-                <div class="social-icons">
-                    <a href="https://github.com/Anugrahasb" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/anugrahasb" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://medium.com/@anugrahasb" target="_blank"><i class="fab fa-medium"></i></a>
+        <div class="hidden lg:flex items-center space-x-10 text-[12px] font-bold uppercase tracking-[0.2em] text-gray-400">
+            <a href="#home" class="hover:text-cyanAccent glow-text transition-all duration-300">Home</a>
+            <a href="#about" class="hover:text-cyanAccent glow-text transition-all duration-300">About</a>
+            <a href="#skills" class="hover:text-cyanAccent glow-text transition-all duration-300">Skills</a>
+            <a href="#experience" class="hover:text-cyanAccent glow-text transition-all duration-300">Experience</a>
+            <a href="#projects" class="hover:text-cyanAccent glow-text transition-all duration-300">Projects</a>
+            <a href="#contact" class="hover:text-cyanAccent glow-text transition-all duration-300">Contact</a>
+        </div>
+
+        <div class="flex items-center space-x-6 text-gray-400">
+            <button class="hover:text-cyanAccent transition-colors"><i class="fa-solid fa-moon text-lg"></i></button>
+            <button class="hover:text-cyanAccent transition-colors"><i class="fa-solid fa-language text-xl"></i></button>
+            <div class="lg:hidden text-2xl text-white"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main id="home" class="relative min-h-screen flex flex-col lg:flex-row items-center justify-between px-6 md:px-20 pt-32 lg:pt-0 z-10">
+
+        <!-- Left Content -->
+        <div class="w-full lg:w-1/2 space-y-8 text-center lg:text-left">
+            <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-cyanAccent/10 border border-cyanAccent/20 text-cyanAccent text-[11px] font-bold tracking-widest uppercase">
+                <span class="mr-2 text-green-400">🟢</span> Available for Remote Work
+            </div>
+
+            <div class="space-y-4">
+                <p class="text-gray-400 font-mono text-lg">Hello, I'm</p>
+                <h1 class="text-5xl md:text-8xl font-black text-white leading-none tracking-tighter">
+                    Anugraha <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyanAccent to-purpleAccent">S.B</span>
+                </h1>
+                <div class="text-2xl md:text-4xl font-bold text-gray-400 flex justify-center lg:justify-start items-center h-12">
+                    <span id="typing-text"></span><span class="cursor"></span>
                 </div>
             </div>
-            <div class="hero-img" data-aos="zoom-in">
-                <div class="img-box">
-                    <img src="https://via.placeholder.com/400x400" alt="Anugraha S.B">
+
+            <p class="text-gray-400 text-base md:text-lg max-w-xl leading-relaxed mx-auto lg:mx-0">
+                Android • Web • Desktop — 4+ years in mobile • Apps used by 1M+ users • 99.9% application stability.
+            </p>
+
+            <div class="flex items-center justify-center lg:justify-start space-x-3 text-gray-300 font-medium">
+                <span class="text-2xl">📍</span>
+                <span class="tracking-wide text-lg">Bangalore, India</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-5 sm:space-y-0 sm:space-x-6 pt-6">
+                <button class="group relative w-full sm:w-auto px-10 py-4 bg-cyanAccent text-dark font-black rounded-xl btn-glow transition-all duration-300 hover:scale-105 flex items-center justify-center">
+                    GET IN TOUCH <i class="fa-solid fa-paper-plane ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                </button>
+                <button class="w-full sm:w-auto px-10 py-4 border-2 border-gray-700 text-white font-black rounded-xl hover:border-cyanAccent hover:text-cyanAccent transition-all duration-300 flex items-center justify-center">
+                    DOWNLOAD CV <i class="fa-solid fa-download ml-3"></i>
+                </button>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex justify-center lg:justify-start space-x-8 pt-12">
+                <a href="https://linkedin.com/in/anugrahasb" target="_blank" class="text-gray-500 hover:text-cyanAccent text-3xl transition-all duration-300 hover:-translate-y-2"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/Anugrahasb" target="_blank" class="text-gray-500 hover:text-cyanAccent text-3xl transition-all duration-300 hover:-translate-y-2"><i class="fa-brands fa-github"></i></a>
+                <a href="https://medium.com/@anugrahasb" target="_blank" class="text-gray-500 hover:text-cyanAccent text-3xl transition-all duration-300 hover:-translate-y-2"><i class="fa-brands fa-medium"></i></a>
+                <a href="mailto:anugrahasb@example.com" class="text-gray-500 hover:text-cyanAccent text-3xl transition-all duration-300 hover:-translate-y-2"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="w-full lg:w-1/2 flex justify-center items-center py-20 lg:py-0">
+            <div class="ring-container">
+                <!-- Neon Rings -->
+                <div class="neon-ring ring-1"></div>
+                <div class="neon-ring ring-2"></div>
+
+                <!-- Orbit for Badges -->
+                <div class="orbit">
+                    <div class="orbit-badge badge-1" title="Kotlin">
+                        <i class="fa-brands fa-kickstarter-k"></i>
+                    </div>
+                    <div class="orbit-badge badge-2" title="Android SDK">
+                        <i class="fa-brands fa-android"></i>
+                    </div>
+                    <div class="orbit-badge badge-3" title="KMP">
+                        <span class="text-[10px] font-black">KMP</span>
+                    </div>
+                    <div class="orbit-badge badge-4" title="Flutter">
+                        <i class="fa-solid fa-feather"></i>
+                    </div>
                 </div>
-                <div class="glow"></div>
+
+                <!-- Profile Image -->
+                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-dark z-20 shadow-[0_0_60px_rgba(0,0,0,0.6)] bg-dark">
+                    <img src="https://via.placeholder.com/400" alt="Anugraha S.B" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" class="relative py-24 md:py-40 px-6 md:px-20 z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header Elements -->
+            <div class="flex flex-col items-center mb-16 md:mb-24">
+                <div class="px-5 py-2 rounded-full bg-cyanAccent/10 border border-cyanAccent/20 text-cyanAccent text-[11px] font-bold tracking-[0.3em] uppercase mb-6 shadow-[0_0_20px_rgba(56,189,248,0.15)] backdrop-blur-sm">
+                    WHO I AM
+                </div>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-white text-center leading-tight tracking-tighter max-w-4xl">
+                    Passionate Mobile Engineer Building at Scale
+                </h2>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+                <!-- Left Column -->
+                <div class="space-y-8 text-gray-400 text-base md:text-lg leading-relaxed font-medium">
+                    <p>
+                        I'm a Senior Android & Kotlin Multiplatform (KMP) Engineer with over 4 years of hands-on experience engineering scalable, high-performance applications utilized by more than 1M+ users globally. My engineering career features a proven track record operating as an Agile Squad Leader, successfully optimizing mobile application stability metrics to an exceptional 99.9% while sustaining a 4.9 Play Store user rating.
+                    </p>
+                    <p>
+                        My current focus centers on architecting offline-first mobile infrastructures and multiplatform ecosystems. I specialize in engineering real-time communication architectures, standardizing reusable enterprise design systems cross-functionally, and managing multi-user data layers.
+                    </p>
+                    <p>
+                        My preferred production architecture stack leverages Clean Architecture and MVVM/MVI design patterns. For native Android, I utilize Kotlin Coroutines, Flow, Jetpack Compose, Room, and Hilt. On cross-platform projects, I build robust systems using Kotlin Multiplatform (KMP), Compose Multiplatform, KKTOR, and Koin.
+                    </p>
+                </div>
+
+                <!-- Right Column (Statistics) -->
+                <div class="grid grid-cols-2 gap-4 md:gap-6 h-full">
+                    <div class="glass-card p-6 md:p-10 rounded-3xl relative group hover:border-purpleAccent/30 transition-all duration-500 flex flex-col justify-between">
+                        <div class="absolute -top-12 -left-12 w-32 h-32 bg-purpleAccent/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="w-12 h-12 rounded-2xl bg-purpleAccent/20 border border-purpleAccent/30 flex items-center justify-center mb-12 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                            <i class="fa-solid fa-briefcase text-purpleAccent text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-4xl md:text-5xl font-black text-white mb-2">4+</div>
+                            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Working Years</div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 md:p-10 rounded-3xl relative group hover:border-cyanAccent/30 transition-all duration-500 flex flex-col justify-between">
+                        <div class="absolute -top-12 -left-12 w-32 h-32 bg-cyanAccent/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="w-12 h-12 rounded-2xl bg-cyanAccent/20 border border-cyanAccent/30 flex items-center justify-center mb-12 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
+                            <i class="fa-solid fa-users text-cyanAccent text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-4xl md:text-5xl font-black text-white mb-2">1M+</div>
+                            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Active Users Supported</div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 md:p-10 rounded-3xl relative group hover:border-amber-400/30 transition-all duration-500 flex flex-col justify-between">
+                        <div class="absolute -top-12 -left-12 w-32 h-32 bg-amber-400/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-400/30 flex items-center justify-center mb-12 shadow-[0_0_15px_rgba(251,191,36,0.2)]">
+                            <i class="fa-solid fa-chart-line text-amber-400 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-4xl md:text-5xl font-black text-white mb-2">99.9%</div>
+                            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">App Stability Rate</div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 md:p-10 rounded-3xl relative group hover:border-pink-500/30 transition-all duration-500 flex flex-col justify-between">
+                        <div class="absolute -top-12 -left-12 w-32 h-32 bg-pink-500/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="w-12 h-12 rounded-2xl bg-pink-500/20 border border-pink-500/30 flex items-center justify-center mb-12 shadow-[0_0_15px_rgba(236,72,153,0.2)]">
+                            <i class="fa-solid fa-vial-circle-check text-pink-500 text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-4xl md:text-5xl font-black text-white mb-2">85%</div>
+                            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Unit Test Coverage</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about">
-        <div class="about-container" data-aos="fade-up">
-            <h2 class="section-title">About <span>Me</span></h2>
-            <div class="about-img">
-                <div class="img-box-small">
-                    <img src="https://via.placeholder.com/300x300" alt="Anugraha S.B">
+    <!-- Skills Section -->
+    <section id="skills" class="relative py-24 md:py-40 px-6 md:px-20 z-10 overflow-hidden bg-dark/40 backdrop-blur-[2px]">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header Elements -->
+            <div class="flex flex-col items-center mb-16 md:mb-20">
+                <div class="px-5 py-2 rounded-full bg-cyanAccent/10 border border-cyanAccent/20 text-cyanAccent text-[11px] font-bold tracking-[0.3em] uppercase mb-6 shadow-[0_0_20px_rgba(56,189,248,0.15)] backdrop-blur-sm">
+                    MY TOOLKIT
                 </div>
-                <div class="glow-small"></div>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-white text-center leading-tight tracking-tighter mb-4">
+                    Skills & Tech Stack
+                </h2>
+                <p class="text-gray-500 text-lg md:text-xl font-medium tracking-tight text-center">
+                    Technologies I work with daily
+                </p>
             </div>
-            <div class="about-content">
-                <h3>Android & Kotlin Multiplatform Engineer</h3>
-                <p>Based in Bangalore, India, I have over 4+ years of experience in Android development and a passion for Kotlin Multiplatform. I've led Agile squads and built impactful EdTech products, focusing on scalable mobile architectures and high-performance solutions.</p>
-                <a href="#contact" class="btn btn-primary">Hire Me</a>
+
+            <!-- Skills Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-3xl relative group hover:border-purpleAccent/30 transition-all duration-500">
+                    <div class="absolute -top-12 -left-12 w-32 h-32 bg-purpleAccent/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-purpleAccent/20 border border-purpleAccent/30 flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                        <i class="fa-solid fa-terminal text-purpleAccent text-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-6 uppercase tracking-tight">Programming Languages</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-purpleAccent hover:border-purpleAccent/30 transition-colors">Kotlin</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-purpleAccent hover:border-purpleAccent/30 transition-colors">Java</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-3xl relative group hover:border-cyanAccent/30 transition-all duration-500">
+                    <div class="absolute -top-12 -left-12 w-32 h-32 bg-cyanAccent/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-cyanAccent/20 border border-cyanAccent/30 flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
+                        <i class="fa-solid fa-mobile-screen-button text-cyanAccent text-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-6 uppercase tracking-tight">Mobile & Cross-Platform</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-cyanAccent hover:border-cyanAccent/30 transition-colors">Android SDK</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-cyanAccent hover:border-cyanAccent/30 transition-colors">Kotlin Multiplatform (KMP)</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-cyanAccent hover:border-cyanAccent/30 transition-colors">Compose Multiplatform</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-3xl relative group hover:border-green-400/30 transition-all duration-500">
+                    <div class="absolute -top-12 -left-12 w-32 h-32 bg-green-400/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-green-400/20 border border-green-400/30 flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(74,222,128,0.2)]">
+                        <i class="fa-solid fa-layer-group text-green-400 text-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-6 uppercase tracking-tight">Architecture & State Management</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-green-400 hover:border-green-400/30 transition-colors">MVVM</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-green-400 hover:border-green-400/30 transition-colors">Clean Architecture</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-green-400 hover:border-green-400/30 transition-colors">MVI</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-green-400 hover:border-green-400/30 transition-colors">Shared ViewModels</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-green-400 hover:border-green-400/30 transition-colors">Coroutines</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-green-400 hover:border-green-400/30 transition-colors">Flow</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-green-400 hover:border-green-400/30 transition-colors">State Flow</span>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card p-8 rounded-3xl relative group hover:border-orange-400/30 transition-all duration-500">
+                    <div class="absolute -top-12 -left-12 w-32 h-32 bg-orange-400/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-orange-400/20 border border-orange-400/30 flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(251,146,60,0.2)]">
+                        <i class="fa-solid fa-palette text-orange-400 text-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-6 uppercase tracking-tight">UI & Design Systems</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-orange-400 hover:border-orange-400/30 transition-colors">Jetpack Compose</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-orange-400 hover:border-orange-400/30 transition-colors">XML</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-orange-400 hover:border-orange-400/30 transition-colors">Material Design 3</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-orange-400 hover:border-orange-400/30 transition-colors">Custom UI Components</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-orange-400 hover:border-orange-400/30 transition-colors">Animations</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-orange-400 hover:border-orange-400/30 transition-colors">Reusable Design Systems (DSL)</span>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="glass-card p-8 rounded-3xl relative group hover:border-rose-400/30 transition-all duration-500">
+                    <div class="absolute -top-12 -left-12 w-32 h-32 bg-rose-400/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-rose-400/20 border border-rose-400/30 flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(251,113,133,0.2)]">
+                        <i class="fa-solid fa-database text-rose-400 text-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-6 uppercase tracking-tight">Networking & Storage</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">KTOR</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">Retrofit</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">OkHttp</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">WebSockets</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">Socket.IO</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">SSE</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">Agora RTC</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">Room</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">DataStore</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">SQLite</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">WorkManager</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">Paging</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">Navigation</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-rose-400 hover:border-rose-400/30 transition-colors">LiveData</span>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="glass-card p-8 rounded-3xl relative group hover:border-fuchsia-400/30 transition-all duration-500">
+                    <div class="absolute -top-12 -left-12 w-32 h-32 bg-fuchsia-400/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-fuchsia-400/20 border border-fuchsia-400/30 flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(192,38,211,0.2)]">
+                        <i class="fa-solid fa-screwdriver-wrench text-fuchsia-400 text-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-6 uppercase tracking-tight">Tools, CI/CD & Testing</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-fuchsia-400 hover:border-fuchsia-400/30 transition-colors">Git</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-fuchsia-400 hover:border-fuchsia-400/30 transition-colors">GitHub Actions</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-fuchsia-400 hover:border-fuchsia-400/30 transition-colors">Jenkins</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-fuchsia-400 hover:border-fuchsia-400/30 transition-colors">Firebase</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-fuchsia-400 hover:border-fuchsia-400/30 transition-colors">Matomo</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-fuchsia-400 hover:border-fuchsia-400/30 transition-colors">MockK</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-fuchsia-400 hover:border-fuchsia-400/30 transition-colors">JUnit</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-fuchsia-400 hover:border-fuchsia-400/30 transition-colors">Espresso</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-fuchsia-400 hover:border-fuchsia-400/30 transition-colors">Android Profiler</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-fuchsia-400 hover:border-fuchsia-400/30 transition-colors">ANR Debugging</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-fuchsia-400 hover:border-fuchsia-400/30 transition-colors">Firebase Crashlytics</span>
+                        <span class="px-4 py-1.5 bg-dark/50 border border-white/5 rounded-xl text-[13px] font-medium text-gray-400 hover:text-fuchsia-400 hover:border-fuchsia-400/30 transition-colors">SonarQube</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="experience">
-        <div class="container" data-aos="fade-up">
-            <h2 class="section-title">Work <span>Experience</span></h2>
-            <div class="timeline">
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Oct 2024 - Present</div>
-                    <div class="timeline-content">
-                        <h3>Chimple Learning (Client: Ustad Mobile)</h3>
-                        <p class="role">Android & KMP Engineer</p>
-                        <ul>
-                            <li>Implemented Kotlin Multiplatform architecture across Android, Desktop, and Web.</li>
-                            <li>Architecting offline-first education platforms and reporting systems.</li>
-                        </ul>
-                    </div>
+    <!-- Experience Section -->
+    <section id="experience" class="relative py-24 md:py-40 px-6 md:px-20 z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header Elements -->
+            <div class="flex flex-col items-center mb-16 md:mb-24">
+                <div class="px-5 py-2 rounded-full bg-cyanAccent/10 border border-cyanAccent/20 text-cyanAccent text-[11px] font-bold tracking-[0.3em] uppercase mb-6 shadow-[0_0_20px_rgba(56,189,248,0.15)] backdrop-blur-sm">
+                    MY JOURNEY
                 </div>
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Feb 2022 - Sep 2024</div>
-                    <div class="timeline-content">
-                        <h3>Perfectz Digital – Cakap</h3>
-                        <p class="role">Squad Lead & Senior Android Developer</p>
-                        <ul>
-                            <li>Redesigned RTC classroom using Agora RTC; reduced UI defects by 40%.</li>
-                            <li>Led major migrations from Java to Kotlin and XML to Jetpack Compose.</li>
-                        </ul>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-white text-center leading-tight tracking-tighter mb-4">
+                    Work Experience
+                </h2>
+                <p class="text-gray-500 text-lg md:text-xl font-medium tracking-tight text-center">
+                    4+ years across mobile, software & engineering
+                </p>
+            </div>
+
+            <!-- Timeline Structure -->
+            <div class="relative max-w-5xl mx-auto pl-12 md:pl-20">
+                <!-- Vertical Line -->
+                <div class="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-cyanAccent via-purpleAccent to-transparent opacity-30"></div>
+
+                <!-- Experience Entries -->
+                <div class="space-y-12 md:space-y-20">
+                    <!-- Job Entry 1 -->
+                    <div class="relative group">
+                        <!-- Node Icon -->
+                        <div class="absolute -left-12 md:-left-16 top-0 w-12 h-12 rounded-full bg-dark border-2 border-cyanAccent flex items-center justify-center z-20 shadow-[0_0_20px_rgba(56,189,248,0.4)] group-hover:scale-110 transition-transform duration-500">
+                            <i class="fa-solid fa-laptop-code text-cyanAccent text-sm"></i>
+                        </div>
+
+                        <!-- Card Content -->
+                        <div class="glass-card p-8 md:p-12 rounded-3xl relative overflow-hidden group-hover:border-cyanAccent/30 transition-all duration-500">
+                            <div class="absolute -top-12 -right-12 w-48 h-48 bg-cyanAccent/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                            <!-- Top Row Flex -->
+                            <div class="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
+                                <div>
+                                    <h3 class="text-2xl md:text-4xl font-black text-white mb-2 tracking-tight">Android Developer / Kotlin Multiplatform Engineer</h3>
+                                    <div class="text-cyanAccent font-bold text-lg md:text-xl">Chimple Learning (Client: Ustad Mobile)</div>
+                                </div>
+                                <div class="px-5 py-2.5 rounded-2xl bg-cyanAccent/10 border border-cyanAccent/20 text-cyanAccent text-[11px] md:text-[13px] font-black whitespace-nowrap shadow-[0_0_15px_rgba(56,189,248,0.1)] self-start">
+                                    📅 OCT 2024 - PRESENT
+                                </div>
+                            </div>
+
+                            <!-- Metadata Row -->
+                            <div class="text-gray-500 text-sm md:text-base italic mb-8 font-medium">
+                                Bangalore, India (Remote) • October 2024 - Present
+                            </div>
+
+                            <!-- Description Text -->
+                            <p class="text-gray-400 text-base md:text-lg leading-relaxed mb-10 font-medium">
+                                Spearheaded the development of a highly scalable, offline-first application architecture using Kotlin Multiplatform (KMP) across Android, Desktop, and Web modules. Designed and engineered a customizable cross-platform reporting system with interactive data visualizations (KoalaPlot & Plotly), ensuring 100% platform feature parity. Integrated Matomo Analytics with conditional event tracking for offline-first workflows, accelerated content upload pipeline performance by 70%, and sustained an 85% unit test coverage across business logic layers using strict MVVM practices.
+                            </p>
+
+                            <!-- Tech Tags Container -->
+                            <div class="flex flex-wrap gap-2.5">
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-cyanAccent transition-colors">Kotlin Multiplatform (KMP)</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-cyanAccent transition-colors">Compose Multiplatform</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-cyanAccent transition-colors">Android SDK</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-cyanAccent transition-colors">MVVM</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-cyanAccent transition-colors">KoalaPlot</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-cyanAccent transition-colors">Plotly</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-cyanAccent transition-colors">KTOR</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-cyanAccent transition-colors">Matomo Analytics</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-cyanAccent transition-colors">MockK</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-cyanAccent transition-colors">JUnit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job Entry 2 -->
+                    <div class="relative group">
+                        <!-- Node Icon -->
+                        <div class="absolute -left-12 md:-left-16 top-0 w-12 h-12 rounded-full bg-dark border-2 border-purpleAccent flex items-center justify-center z-20 shadow-[0_0_20px_rgba(168,85,247,0.4)] group-hover:scale-110 transition-transform duration-500">
+                            <i class="fa-solid fa-sitemap text-purpleAccent text-sm"></i>
+                        </div>
+
+                        <!-- Card Content -->
+                        <div class="glass-card p-8 md:p-12 rounded-3xl relative overflow-hidden group-hover:border-purpleAccent/30 transition-all duration-500">
+                            <div class="absolute -top-12 -right-12 w-48 h-48 bg-purpleAccent/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                            <!-- Top Row Flex -->
+                            <div class="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
+                                <div>
+                                    <h3 class="text-2xl md:text-4xl font-black text-white mb-2 tracking-tight">Squad Lead & Senior Android Developer</h3>
+                                    <div class="text-purpleAccent font-bold text-lg md:text-xl">Perfectz Digital (Client: Cakap)</div>
+                                </div>
+                                <div class="px-5 py-2.5 rounded-2xl bg-purpleAccent/10 border border-purpleAccent/20 text-purpleAccent text-[11px] md:text-[13px] font-black whitespace-nowrap shadow-[0_0_15px_rgba(168,85,247,0.1)] self-start">
+                                    📅 FEB 2022 - SEP 2024
+                                </div>
+                            </div>
+
+                            <!-- Metadata Row -->
+                            <div class="text-gray-500 text-sm md:text-base italic mb-8 font-medium">
+                                Jakarta, Indonesia • February 2022 - September 2024
+                            </div>
+
+                            <!-- Description Text -->
+                            <p class="text-gray-400 text-base md:text-lg leading-relaxed mb-10 font-medium">
+                                Led cross-functional squad operations including sprint planning, task allocation, and CI/CD delivery as Squad Leader. Boosted user engagement and average session duration by 50% by redesigning the real-time virtual classroom infrastructure using Agora RTC, Qiscus Chat SDK, and Picture-in-Picture (PiP) multitasking. Successfully migrated legacy Java/XML codebases to modern Kotlin and Jetpack Compose, accelerating development velocity by 40% and decreasing UI defects by 40%. Established a rock-solid 99.9% application stability rate by proactively mitigating ANRs and crashes using Firebase Crashlytics.
+                            </p>
+
+                            <!-- Tech Tags Container -->
+                            <div class="flex flex-wrap gap-2.5">
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-purpleAccent transition-colors">Jetpack Compose</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-purpleAccent transition-colors">Kotlin</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-purpleAccent transition-colors">Agora RTC</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-purpleAccent transition-colors">Qiscus Chat SDK</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-purpleAccent transition-colors">MVVM</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-purpleAccent transition-colors">Reusable Design Systems (DSL)</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-purpleAccent transition-colors">Picture-in-Picture (PiP)</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-purpleAccent transition-colors">Firebase Crashlytics</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-purpleAccent transition-colors">MockK</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-purpleAccent transition-colors">JUnit</span>
+                                <span class="px-4 py-2 bg-dark/40 border border-white/5 rounded-xl text-[12px] md:text-[13px] font-bold text-gray-400 hover:text-purpleAccent transition-colors">Espresso</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="skills">
-        <div class="container" data-aos="fade-up">
-            <h2 class="section-title">My <span>Skills</span></h2>
-            <div class="skills-wrapper">
-                <div class="skill-chip">Kotlin</div>
-                <div class="skill-chip">Java</div>
-                <div class="skill-chip">Jetpack Compose</div>
-                <div class="skill-chip">KMP</div>
-                <div class="skill-chip">MVVM</div>
-                <div class="skill-chip">MVI</div>
-                <div class="skill-chip">Clean Architecture</div>
-                <div class="skill-chip">Coroutines</div>
-                <div class="skill-chip">Flow</div>
-                <div class="skill-chip">Hilt</div>
-                <div class="skill-chip">Retrofit</div>
-                <div class="skill-chip">KTOR</div>
-                <div class="skill-chip">Room</div>
-                <div class="skill-chip">MockK</div>
-                <div class="skill-chip">JUnit</div>
-                <div class="skill-chip">Firebase</div>
-                <div class="skill-chip">GitHub Actions</div>
+    <!-- Projects Section -->
+    <section id="projects" class="relative py-24 md:py-40 px-6 md:px-20 z-10 overflow-hidden bg-dark/20">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header Elements -->
+            <div class="flex flex-col items-center mb-16 md:mb-20">
+                <div class="px-5 py-2 rounded-full bg-cyanAccent/10 border border-cyanAccent/20 text-cyanAccent text-[11px] font-bold tracking-[0.3em] uppercase mb-6 shadow-[0_0_20px_rgba(56,189,248,0.15)] backdrop-blur-sm">
+                    MY WORK
+                </div>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-white text-center leading-tight tracking-tighter mb-4">
+                    Featured Projects
+                </h2>
+                <p class="text-gray-500 text-lg md:text-xl font-medium tracking-tight text-center">
+                    Apps shipped to millions of users
+                </p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-16">
+                <button class="px-8 py-2.5 rounded-full bg-cyanAccent text-dark font-black text-[13px] uppercase tracking-widest shadow-[0_0_25px_rgba(56,189,248,0.4)] transition-all">All</button>
+                <button class="px-8 py-2.5 rounded-full bg-dark/40 border border-white/5 text-gray-400 font-bold text-[13px] uppercase tracking-widest hover:border-cyanAccent/30 hover:text-cyanAccent transition-all">KMP</button>
+                <button class="px-8 py-2.5 rounded-full bg-dark/40 border border-white/5 text-gray-400 font-bold text-[13px] uppercase tracking-widest hover:border-cyanAccent/30 hover:text-cyanAccent transition-all">Android Native</button>
+                <button class="px-8 py-2.5 rounded-full bg-dark/40 border border-white/5 text-gray-400 font-bold text-[13px] uppercase tracking-widest hover:border-cyanAccent/30 hover:text-cyanAccent transition-all">EdTech</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: Cakap -->
+                <a href="https://cakap.com/en/" target="_blank" class="group block relative h-full">
+                    <div class="glass-card rounded-[2rem] overflow-hidden border border-white/5 group-hover:border-purpleAccent/30 transition-all duration-500 h-full flex flex-col">
+                        <!-- Top Half: Header Block -->
+                        <div class="h-56 bg-gradient-to-br from-purpleAccent/80 to-purple-900 relative p-8 flex items-center justify-center overflow-hidden">
+                            <div class="absolute inset-0 opacity-20 pointer-events-none">
+                                <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                    <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white" />
+                                </svg>
+                            </div>
+                            <div class="absolute top-6 left-6 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-black tracking-widest uppercase">
+                                1M+ Users
+                            </div>
+                            <i class="fa-solid fa-graduation-cap text-white/40 text-8xl group-hover:scale-110 transition-transform duration-700"></i>
+                        </div>
+                        <!-- Bottom Half -->
+                        <div class="p-8 md:p-10 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-black text-white mb-3 group-hover:text-purpleAccent transition-colors">Cakap Android App</h3>
+                            <div class="text-purpleAccent/80 font-bold text-[13px] uppercase tracking-widest mb-6">Virtual Classroom & Language Learning Ecosystem</div>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-10 font-medium">
+                                Built a reusable Design System Library (DSL) and overhauled the real-time virtual classroom infrastructure using Agora RTC and Qiscus Chat SDK. Migrated legacy Java modules to Kotlin and Jetpack Compose.
+                            </p>
+                            <!-- Tech Tags -->
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span class="px-3 py-1 bg-dark/60 rounded-lg text-[11px] font-bold text-gray-500 border border-white/5 group-hover:border-purpleAccent/20 transition-colors">Jetpack Compose</span>
+                                <span class="px-3 py-1 bg-dark/60 rounded-lg text-[11px] font-bold text-gray-500 border border-white/5 group-hover:border-purpleAccent/20 transition-colors">Agora RTC</span>
+                                <span class="px-3 py-1 bg-dark/60 rounded-lg text-[11px] font-bold text-gray-500 border border-white/5 group-hover:border-purpleAccent/20 transition-colors">DSL</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 2: Ustad App -->
+                <a href="https://www.ustadmobile.com/" target="_blank" class="group block relative h-full">
+                    <div class="glass-card rounded-[2rem] overflow-hidden border border-white/5 group-hover:border-indigo-500/30 transition-all duration-500 h-full flex flex-col">
+                        <!-- Top Half -->
+                        <div class="h-56 bg-gradient-to-br from-indigo-600 to-indigo-950 relative p-8 flex items-center justify-center overflow-hidden">
+                            <div class="absolute inset-0 opacity-10 pointer-events-none">
+                                <div class="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent"></div>
+                            </div>
+                            <div class="absolute top-6 left-6 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-black tracking-widest uppercase">
+                                KMP Ecosystem
+                            </div>
+                            <i class="fa-solid fa-layer-group text-white/40 text-8xl group-hover:scale-110 transition-transform duration-700"></i>
+                        </div>
+                        <!-- Bottom Half -->
+                        <div class="p-8 md:p-10 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-black text-white mb-3 group-hover:text-indigo-400 transition-colors">Ustad Mobile App</h3>
+                            <div class="text-indigo-400/80 font-bold text-[13px] uppercase tracking-widest mb-6">Highly Scalable, Offline-First Learning Platform</div>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-10 font-medium">
+                                Spearheaded a core cross-platform architecture utilizing Kotlin Multiplatform (KMP) across Android, Desktop, and Web. Engineered an offline data-visualization platform with 85% test coverage.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span class="px-3 py-1 bg-dark/60 rounded-lg text-[11px] font-bold text-gray-500 border border-white/5 group-hover:border-indigo-400/20 transition-colors">KMP</span>
+                                <span class="px-3 py-1 bg-dark/60 rounded-lg text-[11px] font-bold text-gray-500 border border-white/5 group-hover:border-indigo-400/20 transition-colors">KTOR</span>
+                                <span class="px-3 py-1 bg-dark/60 rounded-lg text-[11px] font-bold text-gray-500 border border-white/5 group-hover:border-indigo-400/20 transition-colors">KoalaPlot</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 3: Respect App -->
+                <a href="https://www.linkedin.com/company/proj-respect/posts/?feedView=all" target="_blank" class="group block relative h-full">
+                    <div class="glass-card rounded-[2rem] overflow-hidden border border-white/5 group-hover:border-cyanAccent/30 transition-all duration-500 h-full flex flex-col">
+                        <!-- Top Half -->
+                        <div class="h-56 bg-gradient-to-br from-cyanAccent/80 to-cyan-900 relative p-8 flex items-center justify-center overflow-hidden">
+                            <div class="absolute inset-0 opacity-20 pointer-events-none">
+                                <div class="grid grid-cols-6 gap-2 rotate-12">
+                                    <div class="h-20 bg-white/20 rounded-lg"></div><div class="h-20 bg-white/20 rounded-lg"></div>
+                                    <div class="h-20 bg-white/20 rounded-lg"></div><div class="h-20 bg-white/20 rounded-lg"></div>
+                                    <div class="h-20 bg-white/20 rounded-lg"></div><div class="h-20 bg-white/20 rounded-lg"></div>
+                                </div>
+                            </div>
+                            <div class="absolute top-6 left-6 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-black tracking-widest uppercase">
+                                Secure Identity
+                            </div>
+                            <i class="fa-solid fa-shield-halved text-white/40 text-8xl group-hover:scale-110 transition-transform duration-700"></i>
+                        </div>
+                        <!-- Bottom Half -->
+                        <div class="p-8 md:p-10 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-black text-white mb-3 group-hover:text-cyanAccent transition-colors">Respect Application</h3>
+                            <div class="text-cyanAccent/80 font-bold text-[13px] uppercase tracking-widest mb-6">Enterprise Registration Flow & Safe Auth Core</div>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-10 font-medium">
+                                Architected a secure shared-device authentication engine using scanning tech. Designed custom secure parameter tunnels combining AndroidX Browser and Chrome Custom Tabs.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span class="px-3 py-1 bg-dark/60 rounded-lg text-[11px] font-bold text-gray-500 border border-white/5 group-hover:border-cyanAccent/20 transition-colors">Android SDK</span>
+                                <span class="px-3 py-1 bg-dark/60 rounded-lg text-[11px] font-bold text-gray-500 border border-white/5 group-hover:border-cyanAccent/20 transition-colors">Auth Core</span>
+                                <span class="px-3 py-1 bg-dark/60 rounded-lg text-[11px] font-bold text-gray-500 border border-white/5 group-hover:border-cyanAccent/20 transition-colors">QR Scan</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Open Source Banner -->
+            <div class="mt-32 md:mt-48 flex flex-col items-center">
+                <div class="px-5 py-2 rounded-full bg-purpleAccent/10 border border-purpleAccent/20 text-purpleAccent text-[10px] font-bold tracking-[0.3em] uppercase mb-6 shadow-[0_0_20px_rgba(168,85,247,0.15)]">
+                    OPEN SOURCE
+                </div>
+                <h2 class="text-4xl md:text-5xl font-black text-white text-center leading-tight tracking-tighter mb-16">
+                    Building in public on GitHub
+                </h2>
+
+                <div class="w-full glass-card p-6 md:p-8 rounded-[2.5rem] relative overflow-hidden border border-white/10 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyanAccent/5 to-purpleAccent/5 opacity-50"></div>
+                    <!-- GitHub Avatar/Logo -->
+                    <div class="relative w-24 h-24 md:w-28 md:h-28 rounded-full bg-dark border-4 border-white/5 flex items-center justify-center shadow-[0_0_40px_rgba(255,255,255,0.05)] shrink-0">
+                        <i class="fa-brands fa-github text-white text-5xl"></i>
+                        <div class="absolute inset-0 rounded-full border border-cyanAccent/20 animate-ping"></div>
+                    </div>
+                    <!-- Details -->
+                    <div class="flex-grow text-center md:text-left z-10">
+                        <div class="text-3xl font-black text-white mb-1">anugrahasb</div>
+                        <div class="text-gray-500 font-mono text-sm tracking-widest">github.com/anugrahasb</div>
+                    </div>
+                    <!-- CTA -->
+                    <a href="https://github.com/anugrahasb" target="_blank" class="w-full md:w-auto px-10 py-4 bg-cyanAccent text-dark font-black rounded-2xl shadow-[0_0_30px_rgba(56,189,248,0.4)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 z-10">
+                        VIEW MY GITHUB <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="portfolio">
-        <div class="container" data-aos="fade-up">
-            <h2 class="section-title">Featured <span>Projects</span></h2>
-            <div class="projects-grid">
-                <div class="project-card" data-aos="zoom-in">
-                    <div class="project-img-box">
-                        <img src="https://via.placeholder.com/600x400" alt="Ustad App">
+    <!-- Education & Certifications Section -->
+    <section id="education" class="relative py-24 md:py-40 px-6 md:px-20 z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header Elements -->
+            <div class="flex flex-col items-center mb-16 md:mb-24">
+                <div class="px-5 py-2 rounded-full bg-cyanAccent/10 border border-cyanAccent/20 text-cyanAccent text-[11px] font-bold tracking-[0.3em] uppercase mb-6 shadow-[0_0_20px_rgba(56,189,248,0.15)] backdrop-blur-sm">
+                    ACADEMIC BACKGROUND
+                </div>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-white text-center leading-tight tracking-tighter mb-4">
+                    Education
+                </h2>
+                <p class="text-gray-500 text-lg md:text-xl font-medium tracking-tight text-center">
+                    Continuous learning
+                </p>
+            </div>
+
+            <!-- Education Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-10 mb-20 lg:mb-24 max-w-5xl mx-auto">
+                <!-- Education Card 1: MCA -->
+                <div class="glass-card p-8 md:p-10 rounded-3xl relative group hover:border-purpleAccent/30 transition-all duration-500 overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-48 h-48 bg-purpleAccent/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                    <!-- Icon Badge -->
+                    <div class="w-16 h-16 rounded-2xl bg-purpleAccent/20 border border-purpleAccent/30 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(168,85,247,0.2)] group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-graduation-cap text-purpleAccent text-2xl"></i>
                     </div>
-                    <div class="project-info">
-                        <h3>Ustad App</h3>
-                        <div class="tags"><span>KMP</span><span>Android</span></div>
-                        <p>Offline-first learning platform for Android, Desktop, and Web.</p>
-                        <a href="https://github.com/Anugrahasb" target="_blank" class="github-btn"><i class="fab fa-github"></i> View</a>
+
+                    <!-- Degree Title -->
+                    <h3 class="text-2xl md:text-3xl font-black text-white mb-3 group-hover:text-purpleAccent transition-colors duration-300">
+                        Master of Computer Applications
+                    </h3>
+
+                    <!-- Institution -->
+                    <div class="text-gray-400 font-medium text-base mb-6 tracking-tight">
+                        Calicut University • Kerala, India
+                    </div>
+
+                    <!-- Score Pill Row -->
+                    <div class="flex items-center gap-3 mb-8 flex-wrap">
+                        <div class="px-4 py-2.5 rounded-full bg-purpleAccent/15 border border-purpleAccent/30 text-purpleAccent font-black text-[13px] tracking-widest uppercase shadow-[0_0_15px_rgba(168,85,247,0.15)]">
+                            GPA: 7.0 / 10.0
+                        </div>
+                    </div>
+
+                    <!-- Date Row -->
+                    <div class="flex items-center gap-2 text-gray-500 font-medium text-sm">
+                        <i class="fa-solid fa-calendar text-purpleAccent/60 text-base"></i>
+                        <span>Graduation: January 2022</span>
                     </div>
                 </div>
-                <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="project-img-box">
-                        <img src="https://via.placeholder.com/600x400" alt="Cakap">
+
+                <!-- Education Card 2: B.Sc CS -->
+                <div class="glass-card p-8 md:p-10 rounded-3xl relative group hover:border-cyanAccent/30 transition-all duration-500 overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-48 h-48 bg-cyanAccent/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                    <!-- Icon Badge -->
+                    <div class="w-16 h-16 rounded-2xl bg-cyanAccent/20 border border-cyanAccent/30 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(56,189,248,0.2)] group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-book text-cyanAccent text-2xl"></i>
                     </div>
-                    <div class="project-info">
-                        <h3>Cakap</h3>
-                        <div class="tags"><span>Agora RTC</span><span>Compose</span></div>
-                        <p>Real-time education platform used by 1M+ users.</p>
-                        <a href="#" class="github-btn"><i class="fas fa-external-link-alt"></i> Website</a>
+
+                    <!-- Degree Title -->
+                    <h3 class="text-2xl md:text-3xl font-black text-white mb-3 group-hover:text-cyanAccent transition-colors duration-300">
+                        Bachelor of Science in Computer Science
+                    </h3>
+
+                    <!-- Institution -->
+                    <div class="text-gray-400 font-medium text-base mb-6 tracking-tight">
+                        Calicut University • Kerala, India
                     </div>
+
+                    <!-- Score Pill Row -->
+                    <div class="flex items-center gap-3 mb-8 flex-wrap">
+                        <div class="px-4 py-2.5 rounded-full bg-cyanAccent/15 border border-cyanAccent/30 text-cyanAccent font-black text-[13px] tracking-widest uppercase shadow-[0_0_15px_rgba(56,189,248,0.15)]">
+                            GPA: 7.0 / 10.0
+                        </div>
+                    </div>
+
+                    <!-- Date Row -->
+                    <div class="flex items-center gap-2 text-gray-500 font-medium text-sm">
+                        <i class="fa-solid fa-calendar text-cyanAccent/60 text-base"></i>
+                        <span>Graduation: March 2018</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications & Publications Subsection -->
+            <div class="max-w-5xl mx-auto">
+                <!-- Subsection Header -->
+                <div class="mb-10 md:mb-14">
+                    <h3 class="text-3xl md:text-4xl font-black text-white tracking-tight">
+                        Certifications & Publications
+                    </h3>
+                </div>
+
+                <!-- Certifications Grid -->
+                <div class="grid grid-cols-1 gap-4 md:gap-5">
+                    <!-- Certification Item 1 -->
+                    <a href="https://medium.com/@anugrahasb" target="_blank" class="group glass-card p-6 md:p-8 rounded-2xl relative hover:border-orange-400/30 transition-all duration-500 overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="absolute -top-8 -right-8 w-32 h-32 bg-orange-400/5 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                        <!-- Left Side: Icon & Content -->
+                        <div class="flex items-start sm:items-center gap-5 flex-1 z-10">
+                            <div class="w-14 h-14 rounded-xl bg-orange-400/20 border border-orange-400/30 flex items-center justify-center shadow-[0_0_15px_rgba(251,146,60,0.1)] shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-file-pen text-orange-400 text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg md:text-xl font-black text-white group-hover:text-orange-400 transition-colors duration-300">
+                                    Implementing Server-Sent Events (SSE) in Android with okhttp-eventsource
+                                </h4>
+                                <div class="text-gray-500 text-sm font-medium mt-1.5">
+                                    Technical Article • Medium
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Arrow -->
+                        <div class="text-gray-500 group-hover:text-orange-400 transition-colors text-xl z-10 shrink-0">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
+                    </a>
+
+                    <!-- Certification Item 2 -->
+                    <a href="https://medium.com/@anugrahasb" target="_blank" class="group glass-card p-6 md:p-8 rounded-2xl relative hover:border-green-400/30 transition-all duration-500 overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="absolute -top-8 -right-8 w-32 h-32 bg-green-400/5 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                        <!-- Left Side: Icon & Content -->
+                        <div class="flex items-start sm:items-center gap-5 flex-1 z-10">
+                            <div class="w-14 h-14 rounded-xl bg-green-400/20 border border-green-400/30 flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.1)] shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-file-pen text-green-400 text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg md:text-xl font-black text-white group-hover:text-green-400 transition-colors duration-300">
+                                    Understanding and Implementing Jetpack Compose Animation in Android Apps
+                                </h4>
+                                <div class="text-gray-500 text-sm font-medium mt-1.5">
+                                    Technical Article • Medium
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Arrow -->
+                        <div class="text-gray-500 group-hover:text-green-400 transition-colors text-xl z-10 shrink-0">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
+                    </a>
+
+                    <!-- Certification Item 3 -->
+                    <a href="https://medium.com/@anugrahasb" target="_blank" class="group glass-card p-6 md:p-8 rounded-2xl relative hover:border-blue-400/30 transition-all duration-500 overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="absolute -top-8 -right-8 w-32 h-32 bg-blue-400/5 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                        <!-- Left Side: Icon & Content -->
+                        <div class="flex items-start sm:items-center gap-5 flex-1 z-10">
+                            <div class="w-14 h-14 rounded-xl bg-blue-400/20 border border-blue-400/30 flex items-center justify-center shadow-[0_0_15px_rgba(96,165,250,0.1)] shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-file-pen text-blue-400 text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg md:text-xl font-black text-white group-hover:text-blue-400 transition-colors duration-300">
+                                    Implementing Network Speed Test Using Socket.IO in Android
+                                </h4>
+                                <div class="text-gray-500 text-sm font-medium mt-1.5">
+                                    Technical Article • Medium
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Arrow -->
+                        <div class="text-gray-500 group-hover:text-blue-400 transition-colors text-xl z-10 shrink-0">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
+                    </a>
+
+                    <!-- Certification Item 4 -->
+                    <a href="https://www.udemy.com/course/flutter-complete-guide/" target="_blank" class="group glass-card p-6 md:p-8 rounded-2xl relative hover:border-indigo-400/30 transition-all duration-500 overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="absolute -top-8 -right-8 w-32 h-32 bg-indigo-400/5 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                        <!-- Left Side: Icon & Content -->
+                        <div class="flex items-start sm:items-center gap-5 flex-1 z-10">
+                            <div class="w-14 h-14 rounded-xl bg-indigo-400/20 border border-indigo-400/30 flex items-center justify-center shadow-[0_0_15px_rgba(129,140,248,0.1)] shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-certificate text-indigo-400 text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg md:text-xl font-black text-white group-hover:text-indigo-400 transition-colors duration-300">
+                                    Flutter & Dart - The Complete Guide
+                                </h4>
+                                <div class="text-gray-500 text-sm font-medium mt-1.5">
+                                    Certification • Udemy
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Arrow -->
+                        <div class="text-gray-500 group-hover:text-indigo-400 transition-colors text-xl z-10 shrink-0">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <div class="container" data-aos="fade-up">
-            <h2 class="section-title">Contact <span>Me</span></h2>
-            <div class="contact-box">
-                <div class="contact-details">
-                    <p><i class="fas fa-envelope"></i> anugrahasb@example.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-medium"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+    <!-- Recommendations / Testimonials Section -->
+    <section id="recommendations" class="relative py-24 md:py-40 px-6 md:px-20 z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header Elements -->
+            <div class="flex flex-col items-center mb-16 md:mb-24">
+                <div class="px-5 py-2 rounded-full bg-cyanAccent/10 border border-cyanAccent/20 text-cyanAccent text-[11px] font-bold tracking-[0.3em] uppercase mb-6 shadow-[0_0_20px_rgba(56,189,248,0.15)] backdrop-blur-sm">
+                    TESTIMONIALS
+                </div>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-white text-center leading-tight tracking-tighter">
+                    Backed by Peers, Mentors & Leadership
+                </h2>
+            </div>
+
+            <!-- Recommendations Grid (7 Cards) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mb-16">
+
+                <!-- Card 1: Fani Saputra (Cyan Theme) -->
+                <div class="group block relative h-full">
+                    <div class="glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden group-hover:border-cyanAccent/30 transition-all duration-500 h-full flex flex-col justify-between">
+                        <div class="absolute -top-12 -right-12 w-48 h-48 bg-cyanAccent/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                        <!-- Top Row: Quote Icon + LinkedIn Badge -->
+                        <div class="flex items-start justify-between mb-6 relative z-10">
+                            <div class="w-10 h-10 rounded-lg bg-cyanAccent/20 border border-cyanAccent/30 flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.15)]">
+                                <i class="fa-solid fa-quote-left text-cyanAccent text-base"></i>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-cyanAccent/10 border border-cyanAccent/20 flex items-center justify-center">
+                                <i class="fa-brands fa-linkedin text-cyanAccent text-sm"></i>
+                            </div>
+                        </div>
+
+                        <!-- Endorsement Text -->
+                        <p class="text-gray-400 text-base md:text-lg leading-relaxed italic font-medium mb-12 flex-grow">
+                            "Anugraha SB is a highly skilled and dedicated Android Developer, especially proficient in Jetpack Compose. I had the opportunity to work with Anugraha, and during that time, I was thoroughly impressed by her meticulous attention to detail and her speed in completing application development tasks. Her proactive attitude and ability to work well under pressure make her a valuable team member."
+                        </p>
+
+                        <!-- Profile Row -->
+                        <div class="flex items-center gap-4 relative z-10">
+                            <!-- Avatar Badge -->
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-cyanAccent/60 to-cyan-600/60 flex items-center justify-center shrink-0 border-2 border-cyanAccent/30 shadow-[0_0_20px_rgba(56,189,248,0.3)]">
+                                <span class="text-white font-black text-lg">FS</span>
+                            </div>
+
+                            <!-- Name & Title -->
+                            <div class="flex-1 min-w-0">
+                                <div class="font-black text-white text-base truncate">
+                                    Fani Saputra
+                                </div>
+                                <div class="text-gray-500 text-xs font-medium leading-snug mt-0.5">
+                                    Senior Android Developer | Team Building | Management
+                                </div>
+                                <div class="text-gray-600 text-xs font-medium leading-snug mt-1">
+                                    Worked together on the same team at Cakap
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Message" rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+
+                <!-- Card 2: Binil Thomas (Purple Theme) -->
+                <div class="group block relative h-full">
+                    <div class="glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden group-hover:border-purpleAccent/30 transition-all duration-500 h-full flex flex-col justify-between">
+                        <div class="absolute -top-12 -right-12 w-48 h-48 bg-purpleAccent/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                        <!-- Top Row: Quote Icon + LinkedIn Badge -->
+                        <div class="flex items-start justify-between mb-6 relative z-10">
+                            <div class="w-10 h-10 rounded-lg bg-purpleAccent/20 border border-purpleAccent/30 flex items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.15)]">
+                                <i class="fa-solid fa-quote-left text-purpleAccent text-base"></i>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-purpleAccent/10 border border-purpleAccent/20 flex items-center justify-center">
+                                <i class="fa-brands fa-linkedin text-purpleAccent text-sm"></i>
+                            </div>
+                        </div>
+
+                        <!-- Endorsement Text -->
+                        <p class="text-gray-400 text-base md:text-lg leading-relaxed italic font-medium mb-12 flex-grow">
+                            "Anugraha is a true asset to the team. Throughout her tenure, Anugraha has shown great passion for improving her Android development abilities. She continuously asks for comments, gets new ideas quickly, and always brings up suggestions that are aimed at propelling the team forward. Her positive approach and desire to collaborate make her an amazing teammate."
+                        </p>
+
+                        <!-- Profile Row -->
+                        <div class="flex items-center gap-4 relative z-10">
+                            <!-- Avatar Badge -->
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-purpleAccent/60 to-purple-600/60 flex items-center justify-center shrink-0 border-2 border-purpleAccent/30 shadow-[0_0_20px_rgba(168,85,247,0.3)]">
+                                <span class="text-white font-black text-lg">BT</span>
+                            </div>
+
+                            <!-- Name & Title -->
+                            <div class="flex-1 min-w-0">
+                                <div class="font-black text-white text-base truncate">
+                                    Binil Thomas
+                                </div>
+                                <div class="text-gray-500 text-xs font-medium leading-snug mt-0.5">
+                                    Product Engineering & Project Management | Tech @ Perfectzdigital
+                                </div>
+                                <div class="text-gray-600 text-xs font-medium leading-snug mt-1">
+                                    Managed Anugraha directly
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Yolanda Maycellina (Magenta Theme) -->
+                <div class="group block relative h-full">
+                    <div class="glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden group-hover:border-pink-500/30 transition-all duration-500 h-full flex flex-col justify-between">
+                        <div class="absolute -top-12 -right-12 w-48 h-48 bg-pink-500/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                        <!-- Top Row: Quote Icon + LinkedIn Badge -->
+                        <div class="flex items-start justify-between mb-6 relative z-10">
+                            <div class="w-10 h-10 rounded-lg bg-pink-500/20 border border-pink-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(236,72,153,0.15)]">
+                                <i class="fa-solid fa-quote-left text-pink-500 text-base"></i>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center">
+                                <i class="fa-brands fa-linkedin text-pink-500 text-sm"></i>
+                            </div>
+                        </div>
+
+                        <!-- Endorsement Text -->
+                        <p class="text-gray-400 text-base md:text-lg leading-relaxed italic font-medium mb-12 flex-grow">
+                            "I've had the pleasure of working with Anugraha on the team, where she has proven to be an exceptional Android developer. Her fast response time, commitment to sprint goals, and willingness to contribute more are impressive. Anugraha's eagerness to learn, especially with new challenges that are assigned to her, makes her a valuable team member and a great asset to any project."
+                        </p>
+
+                        <!-- Profile Row -->
+                        <div class="flex items-center gap-4 relative z-10">
+                            <!-- Avatar Badge -->
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-pink-500/60 to-rose-600/60 flex items-center justify-center shrink-0 border-2 border-pink-500/30 shadow-[0_0_20px_rgba(236,72,153,0.3)]">
+                                <span class="text-white font-black text-lg">YM</span>
+                            </div>
+
+                            <!-- Name & Title -->
+                            <div class="flex-1 min-w-0">
+                                <div class="font-black text-white text-base truncate">
+                                    Yolanda Maycellina
+                                </div>
+                                <div class="text-gray-500 text-xs font-medium leading-snug mt-0.5">
+                                    UI/UX & Product Enthusiast
+                                </div>
+                                <div class="text-gray-600 text-xs font-medium leading-snug mt-1">
+                                    Managed Anugraha directly
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Ilyasa' Azmi (Cyan Theme) -->
+                <div class="group block relative h-full">
+                    <div class="glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden group-hover:border-cyanAccent/30 transition-all duration-500 h-full flex flex-col justify-between">
+                        <div class="absolute -top-12 -right-12 w-48 h-48 bg-cyanAccent/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                        <!-- Top Row: Quote Icon + LinkedIn Badge -->
+                        <div class="flex items-start justify-between mb-6 relative z-10">
+                            <div class="w-10 h-10 rounded-lg bg-cyanAccent/20 border border-cyanAccent/30 flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.15)]">
+                                <i class="fa-solid fa-quote-left text-cyanAccent text-base"></i>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-cyanAccent/10 border border-cyanAccent/20 flex items-center justify-center">
+                                <i class="fa-brands fa-linkedin text-cyanAccent text-sm"></i>
+                            </div>
+                        </div>
+
+                        <!-- Endorsement Text -->
+                        <p class="text-gray-400 text-base md:text-lg leading-relaxed italic font-medium mb-12 flex-grow">
+                            "Anugraha has passion and skills in developing Android app features. She is trustworthy, responsible, and has a leadership spirit. Able to lead a team to work on remarkable features. Her communication skills are excellent and a pleasure to work with."
+                        </p>
+
+                        <!-- Profile Row -->
+                        <div class="flex items-center gap-4 relative z-10">
+                            <!-- Avatar Badge -->
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-cyanAccent/60 to-cyan-600/60 flex items-center justify-center shrink-0 border-2 border-cyanAccent/30 shadow-[0_0_20px_rgba(56,189,248,0.3)]">
+                                <span class="text-white font-black text-lg">IA</span>
+                            </div>
+
+                            <!-- Name & Title -->
+                            <div class="flex-1 min-w-0">
+                                <div class="font-black text-white text-base truncate">
+                                    Ilyasa' Azmi
+                                </div>
+                                <div class="text-gray-500 text-xs font-medium leading-snug mt-0.5">
+                                    SDE I (iOS)
+                                </div>
+                                <div class="text-gray-600 text-xs font-medium leading-snug mt-1">
+                                    Senior Peer at Cakap
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Aswanth K (Purple Theme) -->
+                <div class="group block relative h-full">
+                    <div class="glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden group-hover:border-purpleAccent/30 transition-all duration-500 h-full flex flex-col justify-between">
+                        <div class="absolute -top-12 -right-12 w-48 h-48 bg-purpleAccent/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                        <!-- Top Row: Quote Icon + LinkedIn Badge -->
+                        <div class="flex items-start justify-between mb-6 relative z-10">
+                            <div class="w-10 h-10 rounded-lg bg-purpleAccent/20 border border-purpleAccent/30 flex items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.15)]">
+                                <i class="fa-solid fa-quote-left text-purpleAccent text-base"></i>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-purpleAccent/10 border border-purpleAccent/20 flex items-center justify-center">
+                                <i class="fa-brands fa-linkedin text-purpleAccent text-sm"></i>
+                            </div>
+                        </div>
+
+                        <!-- Endorsement Text -->
+                        <p class="text-gray-400 text-base md:text-lg leading-relaxed italic font-medium mb-12 flex-grow">
+                            "I had the pleasure of working with Anugraha at Perfectz Digital and Cakap. As an Android developer, she consistently delivered high-quality, user-friendly apps. Her technical skills, attention to detail, and collaborative spirit were invaluable to our team. Anugraha's dedication and positive attitude make her a fantastic colleague."
+                        </p>
+
+                        <!-- Profile Row -->
+                        <div class="flex items-center gap-4 relative z-10">
+                            <!-- Avatar Badge -->
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-purpleAccent/60 to-purple-600/60 flex items-center justify-center shrink-0 border-2 border-purpleAccent/30 shadow-[0_0_20px_rgba(168,85,247,0.3)]">
+                                <span class="text-white font-black text-lg">AK</span>
+                            </div>
+
+                            <!-- Name & Title -->
+                            <div class="flex-1 min-w-0">
+                                <div class="font-black text-white text-base truncate">
+                                    Aswanth K
+                                </div>
+                                <div class="text-gray-500 text-xs font-medium leading-snug mt-0.5">
+                                    iOS Developer | Swift | SwiftUI | MVVM
+                                </div>
+                                <div class="text-gray-600 text-xs font-medium leading-snug mt-1">
+                                    Worked together on the same team
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Ahfas P (Magenta Theme) -->
+                <div class="group block relative h-full">
+                    <div class="glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden group-hover:border-pink-500/30 transition-all duration-500 h-full flex flex-col justify-between">
+                        <div class="absolute -top-12 -right-12 w-48 h-48 bg-pink-500/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                        <!-- Top Row: Quote Icon + LinkedIn Badge -->
+                        <div class="flex items-start justify-between mb-6 relative z-10">
+                            <div class="w-10 h-10 rounded-lg bg-pink-500/20 border border-pink-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(236,72,153,0.15)]">
+                                <i class="fa-solid fa-quote-left text-pink-500 text-base"></i>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center">
+                                <i class="fa-brands fa-linkedin text-pink-500 text-sm"></i>
+                            </div>
+                        </div>
+
+                        <!-- Endorsement Text -->
+                        <p class="text-gray-400 text-base md:text-lg leading-relaxed italic font-medium mb-12 flex-grow">
+                            "I highly recommend Anugraha, who worked with me for two years at Cakap and PerfectzDigital as an Android developer. She excels in communication, presentation, and problem-solving, consistently delivering high-quality work. Anugraha collaborates seamlessly with the team, fostering a positive work environment."
+                        </p>
+
+                        <!-- Profile Row -->
+                        <div class="flex items-center gap-4 relative z-10">
+                            <!-- Avatar Badge -->
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-pink-500/60 to-rose-600/60 flex items-center justify-center shrink-0 border-2 border-pink-500/30 shadow-[0_0_20px_rgba(236,72,153,0.3)]">
+                                <span class="text-white font-black text-lg">AP</span>
+                            </div>
+
+                            <!-- Name & Title -->
+                            <div class="flex-1 min-w-0">
+                                <div class="font-black text-white text-base truncate">
+                                    Ahfas P
+                                </div>
+                                <div class="text-gray-500 text-xs font-medium leading-snug mt-0.5">
+                                    iOS Engineer | Swift | SwiftUI
+                                </div>
+                                <div class="text-gray-600 text-xs font-medium leading-snug mt-1">
+                                    Worked together on the same team
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7: Januprasad K (Cyan Theme) -->
+                <div class="group block relative h-full">
+                    <div class="glass-card p-8 md:p-10 rounded-3xl relative overflow-hidden group-hover:border-cyanAccent/30 transition-all duration-500 h-full flex flex-col justify-between">
+                        <div class="absolute -top-12 -right-12 w-48 h-48 bg-cyanAccent/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                        <!-- Top Row: Quote Icon + LinkedIn Badge -->
+                        <div class="flex items-start justify-between mb-6 relative z-10">
+                            <div class="w-10 h-10 rounded-lg bg-cyanAccent/20 border border-cyanAccent/30 flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.15)]">
+                                <i class="fa-solid fa-quote-left text-cyanAccent text-base"></i>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-cyanAccent/10 border border-cyanAccent/20 flex items-center justify-center">
+                                <i class="fa-brands fa-linkedin text-cyanAccent text-sm"></i>
+                            </div>
+                        </div>
+
+                        <!-- Endorsement Text -->
+                        <p class="text-gray-400 text-base md:text-lg leading-relaxed italic font-medium mb-12 flex-grow">
+                            "I have enjoyed working closely with Anugraha and can confidently say she is a valuable asset to any team. She has consistently exemplified a tangible commitment to learning and improving her skills in Android development. She is proactive in seeking feedback, quick to grasp new concepts, and always eager to contribute ideas that benefit the team. Her positive attitude and collaborative spirit make her a joy to work with."
+                        </p>
+
+                        <!-- Profile Row -->
+                        <div class="flex items-center gap-4 relative z-10">
+                            <!-- Avatar Badge -->
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-cyanAccent/60 to-cyan-600/60 flex items-center justify-center shrink-0 border-2 border-cyanAccent/30 shadow-[0_0_20px_rgba(56,189,248,0.3)]">
+                                <span class="text-white font-black text-lg">JK</span>
+                            </div>
+
+                            <!-- Name & Title -->
+                            <div class="flex-1 min-w-0">
+                                <div class="font-black text-white text-base truncate">
+                                    Januprasad K
+                                </div>
+                                <div class="text-gray-500 text-xs font-medium leading-snug mt-0.5">
+                                    Crafting Innovations @ Toyota | Android | KMP | Jetpack Compose
+                                </div>
+                                <div class="text-gray-600 text-xs font-medium leading-snug mt-1">
+                                    Anugraha's Mentor
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Section Footer CTA Button -->
+            <div class="flex justify-center">
+                <a href="https://www.linkedin.com/in/anugraha-sb-b74748217/" target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center justify-center gap-3 px-10 py-4 bg-gradient-to-r from-cyanAccent to-cyan-500 text-dark font-black rounded-2xl shadow-[0_0_30px_rgba(56,189,248,0.4)] hover:shadow-[0_0_50px_rgba(56,189,248,0.6)] transition-all duration-300 hover:scale-105">
+                    <span class="tracking-tight">View Profile on LinkedIn</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-base group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Anugraha S.B. All rights reserved.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-24 md:py-40 px-6 md:px-20 z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="flex flex-col items-center mb-12 md:mb-16">
+                <div class="px-5 py-2 rounded-full bg-cyanAccent/10 border border-cyanAccent/20 text-cyanAccent text-[11px] font-bold tracking-[0.3em] uppercase mb-6 shadow-[0_0_20px_rgba(56,189,248,0.12)] backdrop-blur-sm">
+                    GET IN TOUCH
+                </div>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white text-center leading-tight tracking-tighter">
+                    Let's Build Something Together
+                </h2>
+                <p class="text-gray-400 text-center max-w-2xl mt-4">
+                    Have a project in mind? I'd love to hear from you. Drop me an email or reach out on LinkedIn.
+                </p>
+            </div>
+
+            <!-- Two Column Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <!-- Left Column: Contact Handles -->
+                <div class="space-y-4">
+                    <!-- EMAIL -->
+                    <div class="glass-card flex items-center justify-between p-4 rounded-2xl border border-white/6">
+                        <div class="flex items-center gap-4 min-w-0">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-cyanAccent/20 to-cyanAccent/10 border border-cyanAccent/20 shadow-[0_0_12px_rgba(56,189,248,0.08)]">
+                                <i class="fa-solid fa-envelope text-cyanAccent text-lg"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="text-[10px] uppercase tracking-wider text-gray-400 font-bold mb-1">EMAIL</div>
+                                <a href="mailto:anugrahasb1997@gmail.com" class="text-sm md:text-base font-medium text-white truncate block" target="_blank" rel="noopener noreferrer">
+                                    anugrahasb1997@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        <button class="copy-btn inline-flex items-center justify-center w-10 h-10 rounded-lg bg-dark/50 border border-white/6 text-gray-300 hover:bg-cyanAccent/10 transition" data-copy="anugrahasb1997@gmail.com" aria-label="Copy email">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <!-- PHONE -->
+                    <div class="glass-card flex items-center justify-between p-4 rounded-2xl border border-white/6">
+                        <div class="flex items-center gap-4 min-w-0">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-cyanAccent/20 to-cyanAccent/10 border border-cyanAccent/20 shadow-[0_0_12px_rgba(56,189,248,0.08)]">
+                                <i class="fa-solid fa-phone text-cyanAccent text-lg"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="text-[10px] uppercase tracking-wider text-gray-400 font-bold mb-1">PHONE</div>
+                                <a href="tel:+918137969011" class="text-sm md:text-base font-medium text-white truncate block" target="_blank" rel="noopener noreferrer">
+                                    +91-8137969011
+                                </a>
+                            </div>
+                        </div>
+                        <button class="copy-btn inline-flex items-center justify-center w-10 h-10 rounded-lg bg-dark/50 border border-white/6 text-gray-300 hover:bg-cyanAccent/10 transition" data-copy="+91-8137969011" aria-label="Copy phone">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <!-- LINKEDIN -->
+                    <div class="glass-card flex items-center justify-between p-4 rounded-2xl border border-white/6">
+                        <div class="flex items-center gap-4 min-w-0">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-purpleAccent/10 to-purpleAccent/5 border border-purpleAccent/12 shadow-[0_0_12px_rgba(168,85,247,0.06)]">
+                                <i class="fa-brands fa-linkedin-in text-cyanAccent text-lg"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="text-[10px] uppercase tracking-wider text-gray-400 font-bold mb-1">LINKEDIN</div>
+                                <a href="https://www.linkedin.com/in/anugraha-sb-b74748217/" class="text-sm md:text-base font-medium text-white truncate block" target="_blank" rel="noopener noreferrer">
+                                    anugraha-sb-b74748217
+                                </a>
+                            </div>
+                        </div>
+                        <button class="copy-btn inline-flex items-center justify-center w-10 h-10 rounded-lg bg-dark/50 border border-white/6 text-gray-300 hover:bg-cyanAccent/10 transition" data-copy="https://www.linkedin.com/in/anugraha-sb-b74748217/" aria-label="Copy LinkedIn">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <!-- LOCATION -->
+                    <div class="glass-card flex items-center justify-between p-4 rounded-2xl border border-white/6">
+                        <div class="flex items-center gap-4 min-w-0">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-cyanAccent/20 to-cyanAccent/10 border border-cyanAccent/20 shadow-[0_0_12px_rgba(56,189,248,0.08)]">
+                                <i class="fa-solid fa-map-marker-alt text-cyanAccent text-lg"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="text-[10px] uppercase tracking-wider text-gray-400 font-bold mb-1">LOCATION</div>
+                                <div class="text-sm md:text-base font-medium text-white truncate block">
+                                    Bangalore, India
+                                </div>
+                            </div>
+                        </div>
+                        <button class="copy-btn inline-flex items-center justify-center w-10 h-10 rounded-lg bg-dark/50 border border-white/6 text-gray-300 hover:bg-cyanAccent/10 transition" data-copy="Bangalore, India" aria-label="Copy location">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Message Form -->
+                <div class="glass-card p-6 md:p-8 rounded-3xl border border-white/6 relative">
+                    <!-- Floating Top Pill -->
+                    <div class="absolute -top-4 left-6 px-4 py-2 rounded-full bg-cyanAccent/10 border border-cyanAccent/20 text-cyanAccent text-sm font-bold shadow-[0_0_20px_rgba(56,189,248,0.08)]">
+                        📩 Open to remote opportunities
+                    </div>
+
+                    <form id="contact-form" class="mt-6 space-y-4" novalidate>
+                        <div>
+                            <label for="contact-name" class="sr-only">Your Name</label>
+                            <input id="contact-name" name="name" type="text" required placeholder="Your Name"
+                                   class="w-full bg-dark/40 border border-white/6 rounded-lg px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyanAccent/30 focus:border-cyanAccent transition" />
+                        </div>
+
+                        <div>
+                            <label for="contact-email" class="sr-only">Your Email</label>
+                            <input id="contact-email" name="email" type="email" required placeholder="Your Email"
+                                   class="w-full bg-dark/40 border border-white/6 rounded-lg px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyanAccent/30 focus:border-cyanAccent transition" />
+                        </div>
+
+                        <div>
+                            <label for="contact-message" class="sr-only">Your Message</label>
+                            <textarea id="contact-message" name="message" rows="6" required placeholder="Your Message"
+                                      class="w-full bg-dark/40 border border-white/6 rounded-lg px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyanAccent/30 focus:border-cyanAccent transition resize-none"></textarea>
+                        </div>
+
+                        <div class="pt-2">
+                            <button type="submit" class="w-full inline-flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-cyanAccent to-cyan-500 text-dark font-black rounded-2xl shadow-[0_0_30px_rgba(56,189,248,0.35)] hover:scale-[1.02] transition-all">
+                                <span class="text-base">📩 Send Message</span>
+                                <i class="fa-solid fa-paper-plane text-sm"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast / feedback -->
+        <div id="contact-toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 opacity-0 pointer-events-none transition-all duration-300">
+            <div class="bg-[#0F1724]/90 text-white px-4 py-2 rounded-xl shadow-[0_6px_24px_rgba(0,0,0,0.6)] border border-white/6">
+                <span id="contact-toast-msg" class="text-sm"></span>
+            </div>
+        </div>
+
+        <script>
+            (function() {
+              // UTIL: show toast
+              const toast = document.getElementById('contact-toast');
+              const toastMsg = document.getElementById('contact-toast-msg');
+              let toastTimer = null;
+              function showToast(msg) {
+                clearTimeout(toastTimer);
+                toastMsg.textContent = msg;
+                toast.style.opacity = '1';
+                toast.style.pointerEvents = 'auto';
+                toast.classList.remove('translate-y-6');
+                toastTimer = setTimeout(() => {
+                  toast.style.opacity = '0';
+                  toast.style.pointerEvents = 'none';
+                }, 2200);
+              }
+
+              // Copy button handling
+              document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                  const value = btn.getAttribute('data-copy') || '';
+                  try {
+                    await navigator.clipboard.writeText(value);
+                    showToast('Copied to clipboard');
+                    btn.classList.add('scale-95');
+                    setTimeout(()=> btn.classList.remove('scale-95'), 180);
+                  } catch (err) {
+                    showToast('Unable to copy');
+                    console.error('Clipboard copy failed', err);
+                  }
+                });
+              });
+
+              // Form handling (local/UX only)
+              const form = document.getElementById('contact-form');
+              form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = form.querySelector('#contact-name').value.trim();
+                const email = form.querySelector('#contact-email').value.trim();
+                const message = form.querySelector('#contact-message').value.trim();
+
+                if (!name || !email || !message) {
+                  showToast('Please complete all fields');
+                  return;
+                }
+
+                // UX: show success, optionally you can wire this to an API
+                showToast('Message sent — I will get back to you soon!');
+                form.reset();
+
+                // optional: open mail client (commented out), uncomment if you want mailto behavior:
+                // const mailto = `mailto:anugrahasb1997@gmail.com?subject=${encodeURIComponent('Contact from portfolio: ' + name)}&body=${encodeURIComponent(message + '\\n\\nFrom: ' + name + ' (' + email + ')')}`;
+                // window.location.href = mailto;
+              });
+            })();
+        </script>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="relative border-t border-white/6 bg-dark/10">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-8 md:py-10">
+            <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-6 md:gap-8">
+                <!-- Left Block: Identity & Stamp -->
+                <div class="flex-1 min-w-0">
+                    <div class="text-lg md:text-xl font-extrabold text-cyanAccent">
+                        Anugraha S.B
+                    </div>
+                    <div class="mt-2 text-sm md:text-base text-gray-400 max-w-lg">
+                        Built with Kotlin & Jetpack Compose 💙 — this site runs seamlessly across mobile and web platform interfaces.
+                    </div>
+                </div>
+
+                <!-- Center Block: Visitor Counter (keeps centered on small screens) -->
+                <div class="flex-1 flex items-center justify-center">
+                    <div id="visitor-badge" class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-card border border-cyanAccent/20 shadow-[0_6px_30px_rgba(56,189,248,0.06)]">
+                        <!-- Eye Icon -->
+                        <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gradient-to-br from-cyanAccent/10 to-cyanAccent/6 border border-cyanAccent/10 text-cyanAccent">
+                            <!-- simple eye SVG for crispness -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </div>
+
+                        <div class="text-sm md:text-base text-white font-semibold">
+                            <span id="visitor-count">373</span> visitors
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right-Center Block: Social Quick Links -->
+                <div class="flex-1 flex items-center justify-center md:justify-end gap-3">
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/anugraha-sb-b74748217/" target="_blank" rel="noopener noreferrer"
+                       class="w-11 h-11 rounded-lg glass-card border border-white/6 flex items-center justify-center hover:scale-105 transition transform" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyanAccent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6 1.12 6 0 4.88 0 3.5 0 2.12 1.12 1 2.5 1 3.88 1 4.98 2.12 4.98 3.5zM0 8h5V24H0zM8 8h4.8v2.24h.07c.67-1.27 2.3-2.6 4.73-2.6C22.9 7.64 24 9.6 24 13.3V24h-5v-9.9c0-2.36-.04-5.4-3.3-5.4-3.3 0-3.8 2.56-3.8 5.22V24H8V8z"/>
+                        </svg>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:anugrahasb1997@gmail.com" target="_blank" rel="noopener noreferrer"
+                       class="w-11 h-11 rounded-lg glass-card border border-white/6 flex items-center justify-center hover:scale-105 transition transform" aria-label="Email">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-200" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4l-8 5L4 8V6l8 5 8-5v2z"/>
+                        </svg>
+                    </a>
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/Anugrahasb" target="_blank" rel="noopener noreferrer"
+                       class="w-11 h-11 rounded-lg glass-card border border-white/6 flex items-center justify-center hover:scale-105 transition transform" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-200" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 .5C5.648.5.5 5.65.5 12.002c0 5.092 3.292 9.414 7.86 10.94.574.106.78-.25.78-.555 0-.274-.01-1.002-.016-1.97-3.195.694-3.87-1.54-3.87-1.54-.52-1.324-1.27-1.677-1.27-1.677-1.04-.71.08-.697.08-.697 1.15.08 1.754 1.18 1.754 1.18 1.02 1.746 2.68 1.242 3.334.95.104-.74.4-1.242.727-1.528-2.55-.292-5.23-1.278-5.23-5.687 0-1.256.45-2.282 1.19-3.087-.12-.293-.52-1.47.11-3.061 0 0 .97-.31 3.18 1.18a11.04 11.04 0 0 1 2.9-.39c.98.005 1.97.13 2.9.39 2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.768.11 3.06.74.806 1.19 1.832 1.19 3.088 0 4.42-2.69 5.39-5.25 5.676.41.35.77 1.04.77 2.1 0 1.517-.014 2.74-.014 3.11 0 .31.2.67.79.556C20.71 21.41 24 17.093 24 12.002 24 5.65 18.35.5 12 .5z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Far Right Block: Copyright (on md+ it appears as far-right) -->
+                <div class="flex-0 md:flex-none text-sm text-gray-500 mt-3 md:mt-0">
+                    © 2026 • All rights reserved.
+                </div>
+            </div>
+        </div>
+
+        <script>
+            (function() {
+              // Mock visitor counter: use stored value or default to 373
+              const countEl = document.getElementById('visitor-count');
+              const storageKey = 'portfolioVisitorCount_v1';
+              let stored = localStorage.getItem(storageKey);
+              if (!stored) {
+                // default to 373 if not set
+                stored = '373';
+                localStorage.setItem(storageKey, stored);
+              }
+              // Display stored value (string)
+              if (countEl) countEl.textContent = stored;
+              // Optional: lightly pulse the badge to give life
+              const badge = document.getElementById('visitor-badge');
+              if (badge) {
+                badge.classList.add('animate-[pulse_2.8s_infinite]');
+                // remove heavy animation on reduced-motion
+                const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+                if (mq && mq.matches) badge.classList.remove('animate-[pulse_2.8s_infinite]');
+              }
+            })();
+        </script>
+
+        <style>
+            /* small helper to keep footer's badge subtle pulse */
+            @keyframes pulse {
+              0% { transform: translateY(0) scale(1); box-shadow: 0 6px 30px rgba(56,189,248,0.06); }
+              50% { transform: translateY(-2px) scale(1.01); box-shadow: 0 10px 40px rgba(56,189,248,0.09); }
+              100% { transform: translateY(0) scale(1); box-shadow: 0 6px 30px rgba(56,189,248,0.06); }
+            }
+            .animate-\[pulse_2\.8s_infinite\] { animation: pulse 2.8s infinite; }
+        </style>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
+    <!-- Back to Top Button -->
+    <a href="#home" class="fixed bottom-10 right-10 w-14 h-14 rounded-full bg-cyanAccent/10 backdrop-blur-md border border-cyanAccent/30 flex items-center justify-center text-cyanAccent text-xl shadow-[0_0_40px_rgba(56,189,248,0.2)] hover:bg-cyanAccent hover:text-dark transition-all duration-300 z-50">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
 
-        // Simple smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+    <script>
+        // --- Typewriter Animation ---
+        const typingText = document.getElementById('typing-text');
+        const phrases = [
+            "Android & KMP Engineer",
+            "Squad Lead",
+            "Mobile Solution Architect"
+        ];
+
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        let delay = 100;
+
+        function animateTypewriter() {
+            const currentPhrase = phrases[phraseIdx];
+
+            if (isDeleting) {
+                typingText.textContent = currentPhrase.substring(0, charIdx - 1);
+                charIdx--;
+                delay = 50;
+            } else {
+                typingText.textContent = currentPhrase.substring(0, charIdx + 1);
+                charIdx++;
+                delay = 100;
+            }
+
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                isDeleting = true;
+                delay = 2500; // Pause at end
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                delay = 500;
+            }
+
+            setTimeout(animateTypewriter, delay);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(animateTypewriter, 1000);
+        });
+
+        // Sticky Nav UI refinements
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (nav) {
+                if (window.scrollY > 50) {
+                    nav.style.background = 'rgba(11, 15, 25, 0.95)';
+                } else {
+                    nav.style.background = 'rgba(11, 15, 25, 0.8)';
+                }
+            }
         });
     </script>
 </body>
