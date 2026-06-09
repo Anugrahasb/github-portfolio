@@ -179,6 +179,16 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
+        @keyframes floatY {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-float {
+            animation: floatY 6s ease-in-out infinite;
+            will-change: transform;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -254,12 +264,10 @@
 
         <!-- Right Content -->
         <div class="w-full lg:w-1/2 flex justify-center items-center py-20 lg:py-0">
-            <div class="ring-container">
-                <!-- Neon Rings -->
+            <div class="ring-container animate-float !w-[280px] !h-[280px] md:!w-[400px] md:!h-[400px]">
                 <div class="neon-ring ring-1"></div>
                 <div class="neon-ring ring-2"></div>
 
-                <!-- Orbit for Badges -->
                 <div class="orbit">
                     <div class="orbit-badge badge-1" title="Kotlin">
                         <i class="fa-brands fa-kickstarter-k"></i>
@@ -275,9 +283,14 @@
                     </div>
                 </div>
 
-                <!-- Profile Image -->
-                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-dark z-20 shadow-[0_0_60px_rgba(0,0,0,0.6)] bg-dark">
-                    <img src="https://via.placeholder.com/400" alt="Anugraha S.B" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="relative w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-dark z-20 shadow-[0_0_60px_rgba(0,0,0,0.6)] bg-dark">
+                    <img
+                            src="assets/anugraha_profile.jpg"
+                            alt="Anugraha S.B"
+                            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                            style="object-position: 50% 18%;"
+                            loading="lazy"
+                    >
                     <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent"></div>
                 </div>
             </div>
